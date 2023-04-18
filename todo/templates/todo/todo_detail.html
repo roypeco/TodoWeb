@@ -1,0 +1,16 @@
+{% extends 'todo/base.html' %}
+
+{% block header %}
+<h1>Todo Detail</h1>
+{% endblock header %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h2>{{task.title}}</h2>
+        <p>{{task.description}}</p>
+        <p><small class="text-muted">{{task.deadline}}</small></p>
+    </div>
+</div>
+<a class="btn btn-outline-secondary mt-2" href="{% url 'list' %}" role="button">戻る</a>
+{% endblock content %}
