@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  python:
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+    working_dir: /works
+    container_name: todo-web
+    command: python3 manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - type: bind
+        source: ./
+        target: /works
+      - type: volume
+        source: packages
+        target: /usr/local/lib/python3.10/site-packages
+
+volumes:
+  packages:
